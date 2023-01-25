@@ -1,15 +1,18 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
-const FilmList = ({films}) => {
+const FilmList = ({ films, addToBasket }) => {
+  const filmItems = films.map((film) => {
+    return (
+      <div className="film-list" key={film.id}>
+        <Link to={`/films/${film.id}`}>
+          <li>{film.title}</li>
+        </Link>
+        <button onClick={() => addToBasket(film)}>Add to basket</button>
+      </div>
+    );
+  });
 
-    const filmItems = films.map(film =>{
-        return <Link to={`/filmdetails/${film.id}`}><li>{film.title}</li></Link>
-    })
-    
+  return <ul>{filmItems}</ul>;
+};
 
-    return(
-        <ol>{filmItems}</ol>
-    )
-}
-
-export default FilmList
+export default FilmList;

@@ -1,14 +1,17 @@
-import { useParams, Link } from "react-router-dom"
+import { useParams } from "react-router-dom";
+const FilmDetails = ({ findFilmById }) => {
+  const { id } = useParams();
+  const idAsNumber = Number(id);
 
-const FilmDetails = ({findFilmById}) => {
-    const {id} = useParams()
-    const idAsNumber = Number(id)
+  const film = findFilmById(idAsNumber);
 
-    const film = findFilmById(idAsNumber)
+  return (
+    <div className="film-details">
+      <p>
+        {film.title} price: {film.price}
+      </p>
+    </div>
+  );
+};
 
-    return (
-        <p>{film.title} {film.price} {film.id}</p>
-    )
-}
-
-export default FilmDetails
+export default FilmDetails;
