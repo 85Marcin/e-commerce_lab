@@ -2,11 +2,16 @@ import React from "react";
 import styled from "styled-components";
 
 const ListOfFilms = styled.div`
+  align-items: center;
+  background-color: #f4f4f4;
+  border-radius: 5px;
   display: flex;
-  flex-wrap: row;
-  justify-content: center;
-  gap: 10px;
-  margin: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 10px;
+  padding: 10px;
+  width: 300px;
+  list-style: none;
 `;
 
 const Button = styled.button`
